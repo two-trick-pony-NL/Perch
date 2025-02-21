@@ -3,11 +3,11 @@ import { HStack } from '@/components/ui/hstack';
 import { Text } from '@/components/ui/text';
 
 
-export default function Chat() {
+export default function Username() {
   return (
     <SafeAreaView>
       <HStack>
-        <Text className='text-2xl font-bold'>chat WORLD</Text>
+        <Text className='text-2xl font-bold'>feed username</Text>
     </HStack>
     </SafeAreaView>
   );

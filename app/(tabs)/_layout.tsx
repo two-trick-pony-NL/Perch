@@ -1,29 +1,37 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import {Heart} from 'lucide-react-native'
-
+import {ChartBar, MapPinned, CircleFadingPlus, CircleUser, AtSign, Radar} from 'lucide-react-native'
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#2F3F39FF' // Added # for valid hex color
+        tabBarActiveTintColor: '#ff6347' // Added # for valid hex color
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'home' : 'home-outline'} color={color} size={24} />
+            <ChartBar color={color} size={24} />
           )
         }}
       />
       <Tabs.Screen
         name="feed"
         options={{
-          tabBarIcon: ({ color }) => <Heart stroke={color} size={24} />
+          tabBarIcon: ({ color, focused }) => (
+            <MapPinned color={color} size={24} />
+          )        }}
+      />
+            <Tabs.Screen
+        name="camera"
+        options={{
+          title:"Post",
+          tabBarIcon: ({ color, focused }) => (
+            <CircleFadingPlus color={color} size={30} />
+          )
         }}
       />
       <Tabs.Screen
@@ -31,25 +39,16 @@ export default function TabLayout() {
         options={{
           title: 'friends',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'person' : 'person-outline'} color={color} size={24} />
+            <AtSign color={color} size={24} />
           )
         }}
       />
       <Tabs.Screen
-        name="chat"
+        name="radar"
         options={{
-          title: 'chat',
+          title: 'Local Chat',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'person' : 'person-outline'} color={color} size={24} />
-          )
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: 'Profile',
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'person' : 'person-outline'} color={color} size={24} />
+            <Radar color={color} size={24} />
           )
         }}
       />
