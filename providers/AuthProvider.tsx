@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-export const AuthContext = React.createContext({
-    user: {},
-    setUser: ({}) =>{},
+type User = {
+  name?: string;
+};
+
+type AuthContextType = {
+  user: User | null;
+  setUser: (user: User | null) => void;
+};
+
+export const AuthContext = createContext<AuthContextType>({
+  user: null,
+  setUser: () => {},
 });
 
-export const useAuth = () => React.useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext);
 
-export const AuthProvider = ({ children }: {children: React.ReactNode }) => {
-    const [user, setUser] = React.useState({});
-    return (
-        <AuthContext.Provider value={{ user, setUser}}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [user, setUser] = useState<User | null>(null);
+
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
