@@ -31,7 +31,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       // Simulate a call to fetch user from the database and set the user
       console.log("GETTING USER");
       setUser({ name: 'John Doe' }); // Example, replace with real user fetch
-      router.replace('/(tabs)');
+      setTimeout(() => {
+        router.replace('/(tabs)');
+      }, 500); // Delay to ensure the tab bar is loaded
     }
   };
 

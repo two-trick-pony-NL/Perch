@@ -28,12 +28,17 @@ export default function RootLayout() {
 
   return (
     <GluestackUIProvider mode='light'>
-      <AuthProvider >
-        <Stack initialRouteName="(auth)" screenOptions={{headerShown: false}}>
+      <AuthProvider>
+        <Stack
+          initialRouteName="(auth)" // Ensure this points to the correct screen
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
       </AuthProvider>
-    </GluestackUIProvider>  );
+    </GluestackUIProvider>
+  );
 }
